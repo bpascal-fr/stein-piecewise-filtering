@@ -48,6 +48,7 @@ function [xfilter,lambda, crit]= bfgs_sugar(data, param, op, dopl, prox, dprox, 
     % Initial hyperparameter
     if param.lambda == - 1
         Nl = 1;
+        sigma = mean(sigma);
     else
         if strcmp(param.type,'1D')
             Nl = size(data,1);
