@@ -120,7 +120,7 @@ function [x,dx,Ex,Edx,obj,gap]=dPD_ChambollePock(data, param, op, dopl, prox, dp
         Ex = prox.fidelity(Ex0 - tau * op.adjoint(Ey,lambda),Edata,tau);
         
         %Update of the descent steps
-        if param.mu>=1
+        if param.mu>=0
             theta = (1+2*param.mu*tau)^(-1/2);
             tau = theta*tau;
             sig=sig/theta;

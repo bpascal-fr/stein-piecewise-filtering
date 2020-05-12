@@ -46,7 +46,7 @@ function [x,obj,gap]=PD_ChambollePock(data, param, op, prox, objective)
         x = prox.fidelity(x0 - tau * op.adjoint(y),data,tau);
         
         %Update of the descent steps
-        if param.mu>=1
+        if param.mu>=0
             theta = (1+2*param.mu*tau)^(-1/2);
             tau = theta*tau;
             sig=sig/theta;
