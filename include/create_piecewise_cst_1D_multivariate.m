@@ -23,7 +23,7 @@ function [data,truth] = create_piecewise_cst_1D_multivariate(M,N,Ep,sig,Nval)
     % April 2020
     
     if nargin < 5
-        Nval = [10, 10, 10];
+        Nval = 10*ones(1,10);
         if nargin < 4
             sig = 1e-1;
             if nargin < 3
@@ -31,7 +31,7 @@ function [data,truth] = create_piecewise_cst_1D_multivariate(M,N,Ep,sig,Nval)
             end
         else
             if numel(Nval) == 1
-                Nval = Nvel*ones(1,M);
+                Nval = Nval*ones(1,M);
             elseif ~numel(Nval) == M
                 disp('ERROR: number of different values differs from number of component')
             end
